@@ -154,8 +154,9 @@ body {
 .section-home {
     background-image: url(https://res.cloudinary.com/crimson-flamingo/image/upload/v1560960995/3105%20portfolio%20screenshots/own_website_home.jpg);
     text-align: center;
+    background-size: cover;
     height: 100vh;
-    background-size: 200vw;
+    min-height: -webkit-fill-available;
     @include mQ(30em) {
         background-attachment: fixed;
         background-position: center;
