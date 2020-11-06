@@ -4,55 +4,70 @@
     }
 }
 
-.section-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
+// navigation
+// navigation
+header {
+    background-color: rgb(24, 21, 14);
+    position: sticky;
+    position: -webkit-sticky;
     z-index: 2;
-    @include mQ(30em) {
-        right: 0;
-        width: 100em;
-        margin: auto;
-        background-color: rgb(53, 51, 44);
-    }
-    .section-nav-button {
-        background-color: rgb(53, 51, 44);
-        button {
-            background-color: brown;
-            padding: 0;
+    top: 0;
+    .section-nav {
+        height: 2em;
+        .section-nav-icon-provider {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 3;
+            height: 2em;
+            width: 2em;
+            color: lightgreen;
+            @include mQ(30em) {
+                display: none;
+            }
         }
-        @include mQ(30em) {
+
+        // desktop view
+        .section-navlink-container {
             display: none;
+            @include mQ(30em) {
+                display: block;
+            }
         }
-    }
-    .section-navlink-container {
-        display: none;
-        @include mQ(30em) {
-            display: inline-block;
+
+        // mobile view
+        .section-navlink-container-mobile {
+            height: 100vh;
+            margin-top: 0;
+            background-color: rgb(53, 51, 44);
+            width: 20em;
+            @include mQ(30em) {
+                background-color: rgb(24, 21, 14);
+                height: 2em;
+            }
         }
-    }
-    .section-navlink-container-mobile {
-        background-color: rgb(53, 51, 44);
-        height: 100vh;
-    }
-    .section-nav-links {
-        display: block;
-        width: 100%;
-        color: lightgreen;
-        padding: 1em;
-        width: 10em;
-        border: solid 1px lightgreen;
-        &:link {
-            text-decoration: none;
-        }
-        &:hover {
-            color: rgb(79, 209, 137);
-            background-color: lighten(rgb(53, 51, 44), 13);
-        }
-        @include mQ(30em) {
-            display: inline-block;
-            padding: 0.5em;
-            width: 7em;
+        .section-navlink-container-blank {
+            padding-top: 2em;
+            @include mQ(30em) {
+                padding-top: 0;
+            }
+            .section-nav-links {
+                display: block;
+                // padding: 2em;
+                color: lightgreen;
+                border: solid 0.3px lightgreen;
+                padding: 0.4em 1em 0.4em 1em;
+                &:link {
+                    text-decoration: none;
+                }
+                &:hover {
+                    color: rgb(79, 209, 137);
+                    background-color: lighten(rgb(53, 51, 44), 13);
+                }
+                @include mQ(30em) {
+                    display: inline-block;
+                }
+            }
         }
     }
 }
@@ -188,7 +203,7 @@ body {
 
 .section-projects {
     padding: 0 1em;
-    background-color: beige;
+    background-color: rgb(240, 255, 215);
     @include mQ(30em) {
         padding: 0 3em;
     }
@@ -209,12 +224,16 @@ body {
         }
         .section-projects-web-items {
             display: grid;
-            grid-template-rows: minmax(auto, 4em) minmax(auto, 2em) auto minmax(auto, 6em) 1fr;
+            grid-template-rows:
+                minmax(auto, 4em) minmax(auto, 2em) minmax(auto, 2em)
+                auto minmax(auto, 6em) 1fr;
             justify-items: center;
             border: 0.1em solid black;
             .section-projects-web-items-image {
                 width: 80%;
                 @include mQ(30em) {
+                    height: 20em;
+                    width: auto;
                 }
             }
         }

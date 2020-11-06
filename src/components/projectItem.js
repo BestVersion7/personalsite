@@ -7,13 +7,23 @@ export const ProjectItem = ({
     url_image,
     description,
     technologiesUsed,
+    githubLink,
 }) => {
     return (
         <article className="section-projects-web-items">
             <h4>{title}</h4>
-            <a href={url_link} target="_blank" rel="noopener noreferrer">
-                {url_link}
-            </a>
+            <div>
+                <b>Link to Project: </b>
+                <a href={url_link} target="_blank" rel="noopener noreferrer">
+                    {url_link}
+                </a>
+            </div>
+            <div>
+                <b>Link to Code: </b>
+                <a href={githubLink} target="_blank" rel="noopener noreferrer">
+                    {githubLink}
+                </a>
+            </div>
             <img
                 className="section-projects-web-items-image"
                 src={url_image}
@@ -22,7 +32,9 @@ export const ProjectItem = ({
             <p>
                 <b>Technologies Used:</b> {technologiesUsed}
             </p>
-            <p><b>Description:</b> {description}</p>
+            <p>
+                <b>Description:</b> {description}
+            </p>
         </article>
     );
 };
@@ -33,4 +45,5 @@ ProjectItem.propTypes = {
     url_image: string.isRequired,
     description: string.isRequired,
     technologiesUsed: string.isRequired,
+    githubLink: string.isRequired,
 };

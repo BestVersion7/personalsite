@@ -1,110 +1,130 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { IconContext } from "react-icons";
+import { AiOutlineClose } from "react-icons/ai";
 
 export const Navigation = () => {
     const [mobileIcon, setMobileIcon] = useState(true);
     const [showNav, setShowNav] = useState(true);
-    const handleClick = () => {
+
+    const handleClickIconMobile = () => {
         setMobileIcon(!mobileIcon);
         setShowNav(!showNav);
     };
-    const handleCollapse = () => {
+    const handleClickLinkMobile = () => {
         window.scrollTo(0, 0);
         setMobileIcon(!mobileIcon);
         setShowNav(!showNav);
     };
-    const handleClickNav = () => {
+    const handleClickLinkDesktop = () => {
         window.scrollTo(0, 0);
     };
 
     return (
-        <div className="section-nav">
-            {mobileIcon ? (
-                <div className="section-nav-button">
-                    <button onClick={handleClick}>
-                        <img
-                            style={{ height: "40px" }}
-                            src="https://res.cloudinary.com/crimson-flamingo/image/upload/v1556245482/230419%20Icons/hamburgerIcon.png"
-                            alt="hamburger"
-                        />
-                    </button>
-                </div>
-            ) : (
-                <div className="section-nav-button">
-                    <button onClick={handleClick}>
-                        <img
-                            style={{ height: "40px" }}
-                            src="https://res.cloudinary.com/crimson-flamingo/image/upload/v1556245482/230419%20Icons/exitIcon.png"
-                            alt="close"
-                        />
-                    </button>
-                </div>
-            )}
-            {showNav ? (
-                <nav className="section-navlink-container">
-                    <NavLink
-                        onClick={handleClickNav}
-                        className="section-nav-links"
-                        to="/"
-                        exact={true}
+        <header>
+            <nav className="section-nav">
+                {mobileIcon ? (
+                    <IconContext.Provider
+                        value={{ className: "section-nav-icon-provider" }}
                     >
-                        Home
-                    </NavLink>
-                    <NavLink
-                        onClick={handleClickNav}
-                        className="section-nav-links"
-                        to="/profile"
+                        <GiHamburgerMenu onClick={handleClickIconMobile} />
+                    </IconContext.Provider>
+                ) : (
+                    <IconContext.Provider
+                        value={{ className: "section-nav-icon-provider" }}
                     >
-                        Profile
-                    </NavLink>
-                    <NavLink
-                        onClick={handleClickNav}
-                        className="section-nav-links"
-                        to="/skills"
-                    >
-                        Abilities
-                    </NavLink>
-                    <NavLink
-                        onClick={handleClickNav}
-                        className="section-nav-links"
-                        to="/project"
-                    >
-                        Passion Projects
-                    </NavLink>
-                </nav>
-            ) : (
-                <nav className="section-navlink-container-mobile">
-                    <NavLink
-                        onClick={handleCollapse}
-                        className="section-nav-links"
-                        to="/"
-                        exact={true}
-                    >
-                        Home
-                    </NavLink>
-                    <NavLink
-                        onClick={handleCollapse}
-                        className="section-nav-links"
-                        to="/profile"
-                    >
-                        Profile
-                    </NavLink>
-                    <NavLink
-                        onClick={handleCollapse}
-                        className="section-nav-links"
-                        to="/skills"
-                    >
-                        Skills and Abilities
-                    </NavLink>
-                    <NavLink
-                        onClick={handleCollapse}
-                        className="section-nav-links"
-                        to="/project"
-                    >
-                        Passion Projects
-                    </NavLink>
-                </nav>
-            )}
-        </div>
+                        <AiOutlineClose onClick={handleClickIconMobile} />
+                    </IconContext.Provider>
+                )}
+                {showNav ? (
+                    <nav className="section-navlink-container">
+                        <div className="section-navlink-container-blank">
+                            <NavLink
+                                onClick={handleClickLinkDesktop}
+                                className="section-nav-links"
+                                to="/"
+                                exact={true}
+                            >
+                                Home
+                            </NavLink>
+
+                            <NavLink
+                                onClick={handleClickLinkDesktop}
+                                className="section-nav-links"
+                                to="/profile"
+                            >
+                                Profile
+                            </NavLink>
+                            <NavLink
+                                onClick={handleClickLinkDesktop}
+                                className="section-nav-links"
+                                to="/skills"
+                            >
+                                Skills
+                            </NavLink>
+                            <NavLink
+                                onClick={handleClickLinkDesktop}
+                                className="section-nav-links"
+                                to="/project"
+                            >
+                                Project
+                            </NavLink>
+                            <a
+                                className="section-nav-links"
+                                href="https://athomeblogs.herokuapp.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Blog
+                            </a>
+                        </div>
+                    </nav>
+                ) : (
+                    <nav className="section-navlink-container-mobile">
+                        <div className="section-navlink-container-blank">
+                            <NavLink
+                                onClick={handleClickLinkMobile}
+                                className="section-nav-links"
+                                to="/"
+                                exact={true}
+                            >
+                                Home
+                            </NavLink>
+
+                            <NavLink
+                                onClick={handleClickLinkMobile}
+                                className="section-nav-links"
+                                to="/profile"
+                            >
+                                Profile
+                            </NavLink>
+                            <NavLink
+                                onClick={handleClickLinkMobile}
+                                className="section-nav-links"
+                                to="/skills"
+                            >
+                                Skills
+                            </NavLink>
+                            <NavLink
+                                onClick={handleClickLinkMobile}
+                                className="section-nav-links"
+                                to="/project"
+                            >
+                                Project
+                            </NavLink>
+                            <a
+                                className="section-nav-links"
+                                href="https://athomeblogs.herokuapp.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Blog
+                            </a>
+                        </div>
+                    </nav>
+                )}
+            </nav>
+        </header>
     );
 };

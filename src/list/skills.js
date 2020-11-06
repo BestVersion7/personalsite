@@ -64,8 +64,8 @@ export const webDevelopmentSkills = [
     },
     {
         name: "CSS",
-        starFill: 3,
-        starHalf: 1,
+        starFill: 4,
+        starHalf: 0,
         star: 1,
     },
     {
@@ -94,15 +94,27 @@ export const webDevelopmentSkills = [
     },
     {
         name: "SQL",
-        starFill: 3,
-        starHalf: 1,
+        starFill: 4,
+        starHalf: 0,
         star: 1,
+    },
+    {
+        name: "Web Sockets",
+        starFill: 4,
+        starHalf: 1,
+        star: 0,
     },
     {
         name: "RESTful API",
         starFill: 4,
         starHalf: 1,
         star: 0,
+    },
+    {
+        name: "UI/UX Testing",
+        starFill: 3,
+        starHalf: 0,
+        star: 2,
     },
     {
         name: "AWS",
@@ -135,6 +147,6 @@ export const toolSkills = [
         name: "Adobe Premiere Pro",
         starFill: 3,
         starHalf: 1,
-        star: 0,
+        star: 1,
     },
 ];
